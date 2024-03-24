@@ -3,30 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Proyecto crm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <h1>Tabla de usuarios</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Nombre</th>
-                <th>Identificacion</th>
-            </tr>
-
-            <tr th:each="persona : ${personas}">
-                <td th:text="${persona.nombre}"></td>
-                <td th:text="${persona.identificacion}"></td>
-            </tr>
-        </tbody>
+    <div class="contenedor">
+        <nav class="navegacion">
+            <h2>CRM-indexDB</h2>
+            <h4>Administra tus clientes con el CRM-indexDB</h4>
+            <ul>
+                <li>
+                    <a href="index.html">Clientes</a>
+                </li>
+                <li>
+                    <a th:href="@{/agregar}">Nuevo cliente</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="contenido-principal">
+            <!-- Contenido principal -->
+            <h1>Clientes</h1>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre Cliente</th>
+                        <th>identificacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="persona : ${personas}">
+                        <td th:text="${persona.nombre}"></td>
+                        <td th:text="${persona.identificacion}"></td>
         
-
-
-
-
-
-    </table>
+                        <td>
+                          <button>Editar</button>
+                          <button>Eliminar</button>
+                        </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+  
+   
 </body>
+<script type="module" src="js/app.js"></script>
 </html>

@@ -1,4 +1,4 @@
-package com.estudiantes.demo;
+package com.estudiantes.demo.domain;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "personas")
+@Table(name = "personas_seq")
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;

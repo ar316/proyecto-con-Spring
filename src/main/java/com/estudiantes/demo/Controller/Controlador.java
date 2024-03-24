@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.estudiantes.demo.domain.Persona;
 import com.estudiantes.demo.servicios.PersonaService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -33,10 +36,16 @@ public class Controlador {
         return "index";
     }
 
-
     @GetMapping("/agregar")
     public String Agregar(Persona persona){
 
         return "addCliente";
     }
+
+    @PostMapping("/guardar")
+    public String guardar(Persona persona) {
+       personaService.Guardar(persona);
+       return "redirect:/incios";
+    }
+    
 }

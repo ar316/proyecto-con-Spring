@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.estudiantes.demo.domain.Persona;
 import com.estudiantes.demo.servicios.PersonaService;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+
+
 
 
 
@@ -38,7 +40,6 @@ public class Controlador {
 
     @GetMapping("/agregar")
     public String Agregar(Persona persona){
-
         return "addCliente";
     }
 
@@ -47,5 +48,19 @@ public class Controlador {
        personaService.Guardar(persona);
        return "redirect:/incios";
     }
+    
+    @GetMapping("/Editar")
+    public String Editar(Persona p, Model model) {
+         p  = personaService.encontrarPersona(p);
+        model.addAttribute("persona", p);        
+        return "addCliente";
+    }
+
+    @GetMapping("/Eliminar/{id}")
+    public String Eliminar(Persona p){ 
+        personaService.Eliminar(p);
+        return "redirect:/incios";
+    }
+
     
 }

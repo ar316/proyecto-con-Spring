@@ -146,6 +146,33 @@ input{
 }
 .btn-input{
     margin-top: 25px;
-    background-color: rgb(126, 128, 126);
+    width: 100%;
+    background-color: rgb(47, 222, 219);
     box-shadow: 0 0 5px  rgb(90, 190, 220);;
+}
+
+.boton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton2 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton2:hover {
+  background-color: #f81808;
 }

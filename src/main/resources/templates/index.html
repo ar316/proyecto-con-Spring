@@ -41,8 +41,12 @@
                         <td th:text="${persona.identificacion}"></td>
         
                         <td>
-                          <button>Editar</button>
-                          <button>Eliminar</button>
+                          
+
+                            
+                            <a th:href="@{/Editar(id=${persona.id})}" class="boton">Editar</a>
+
+                            <a th:href="@{'/Eliminar/' + ${persona.id}}" class="boton2">Eliminar</a>
                         </td>
                       </tr>
                 </tbody>

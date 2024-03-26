@@ -4,16 +4,15 @@ package com.estudiantes.demo.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.estudiantes.demo.domain.Persona;
 import com.estudiantes.demo.servicios.PersonaService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
-
-
-
-
-
 
 
 @Controller
@@ -44,7 +43,11 @@ public class Controlador {
     }
 
     @PostMapping("/guardar")
-    public String guardar(Persona persona) {
+    public String guardar(@Valid Persona persona, Errors errores) {
+        if(errores.hasErrors()){
+            System.out.println("ha ocurrido un errror");
+            return "addCliente";  
+        }
        personaService.Guardar(persona);
        return "redirect:/incios";
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,8 +34,10 @@
                             <input type="hidden" name="persona.id" th:field="*{id}">
                             <label for="name">Name</label>
                             <input type="text" name="nombre"  th:field="*{nombre}"> <br>
+                            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">El nombre no puede estar vacio</span>
                             <label for="identificacion">identificacion</label>
                             <input type="text" name="identificacion"  th:field="*{identificacion}"> <br>
+                            <span th:if="${#fields.hasErrors('identificacion')}" th:errors="*{identificacion}">El campo identificacion no puede estar vacio</span>
                     
                             <input class="btn-input" type="submit" name="guardar" value="Guardar">
                         </div>
